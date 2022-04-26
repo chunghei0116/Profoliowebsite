@@ -18,7 +18,7 @@ let modal = function (modalClick) {
 
 modalBtns.forEach((mb, i) => {
   mb.addEventListener("click", () => {
-    modal(1);
+    modal(i);
   });
 });
 
@@ -49,13 +49,22 @@ function activeWork() {
 linkWork.forEach((e) => e.addEventListener("click", activeWork));
 /*=============== SWIPER TESTIMONIAL ===============*/
 let swiperTestimonial = new Swiper(".testimonial__container", {
-  spaceBetween: 30,
+  spaceBetween: 24,
 
   loop: true,
   grabCursor: true,
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
+  },
+  breakpoints: {
+    576: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 48,
+    },
   },
 });
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
@@ -66,9 +75,8 @@ function scrollActive() {
 
   sections.forEach((current) => {
     const sectionHeight = current.offsetHeight,
-      sectionTop = current.offsetTop - 58,
+      sectionTop = current.offsetTop - 56,
       sectionId = current.getAttribute("id");
-
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
       document
         .querySelector(".nav__menu a[href*=" + sectionId + "]")
