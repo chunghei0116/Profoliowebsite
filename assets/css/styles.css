@@ -650,11 +650,19 @@ body.light-theme {
   background-color: var(--container-color);
   padding: 1rem;
   border-radius: 1rem;
+  overflow: hidden;
+  display: inline-block;
 }
+
+.work__card:hover img{
+  transform: scale(1.1);
+}
+
 
 .work__img {
   border-radius: 1rem;
   margin-bottom: 0.75rem;
+  transition: transform 0.3s linear;
 }
 
 .work__title {
